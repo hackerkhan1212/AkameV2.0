@@ -5535,11 +5535,12 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) // respon ketika limit habis
                 db.data.users[m.sender].limit -= 1 // -1 limit
                 let anu = await fetchJson(`https://api.sekha.me/api/nsfw/${command}?apikey=apirey`)
+		buffer = await getBuffer(anu)
                      let buttons = [                   
                     {buttonId: `${command}`, buttonText: {displayText: '⌲ Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: anu },
+                    image: { url: buffer },
                     caption: `Nsfw ${command}`,
                     footer: 'Enjoy',
                     buttons: buttons,
@@ -5954,6 +5955,63 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 │⭔ ${prefix}ayaka
 │⭔ ${prefix}calliope
 │⭔ ${prefix}kitagawa
+└──────────────┈❖`
+                let buttons = [{ buttonId: 'command', buttonText: { displayText: '⬅️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: '📖All Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: '🙏Donasi' }, type: 1 }]
+            await akame.sendButtonText(m.chat, buttons, anu, ntiktok, fkontak)
+            }
+            break
+			case 'nsfwmenu':
+            case 'menunsfw': {
+                anu = `┌────────┈❖
+│「 Hi, ${pushname}👋 」
+│「 ${ucapanWaktu} 」
+└┬─────────────┈❖
+┌┤「 INFO USER 」
+│└─────────────┈❖
+│• Name : ${pushname}
+│• Number : ${m.sender.split('@')[0]}
+│• Status : ${isCreator ? "Owner 👑️":"User ⚔️"}
+│• User : ${isPremium ? 'Premium 👑' : 'Gratisan 🗿'}
+│• Limit : ${isCreator ? 'Unlimited 👑' : `${db.data.users[m.sender].limit}`}
+└┬─────────────┈❖
+┌┤「 INFO BOT 」
+│└─────────────┈❖
+│• Name : ${global.namabot}
+│• Owner : ${global.namaowner}
+│• Prefix : ( ${prefix} )
+│• Mode : ${akame.public ? 'Public-Mode 👥' : 'Self-Mode 👤'}
+│• Total Hit : ${jumlahcmd}
+│• Total Hit Today : ${jumlahharian}
+│• Platform : ${os.platform()}
+│• Runtime :
+│  ${runtime(process.uptime())}
+│• Language : Javascript
+│• Lib : Baileys-md
+└┬─────────────┈❖
+┌┤「 NSFW 」
+│└─────────────┈❖
+│⭔ ${prefix}ass 
+│⭔ ${prefix}bdsm
+│⭔ ${prefix}blowjob
+│⭔ ${prefix}cuckold
+│⭔ ${prefix}cum
+│⭔ ${prefix}ero
+│⭔ ${prefix}femdom
+│⭔ ${prefix}foot
+│⭔ ${prefix}gangbang
+│⭔ ${prefix}glasses
+│⭔ ${prefix}hentai
+│⭔ ${prefix}gifs
+│⭔ ${prefix}jahy
+│⭔ ${prefix}manga
+│⭔ ${prefix}neko
+│⭔ ${prefix}orgy
+│⭔ ${prefix}panties
+│⭔ ${prefix}neko2
+│⭔ ${prefix}tentacles
+│⭔ ${prefix}thighs
+│⭔ ${prefix}yuri
+│⭔ ${prefix}zettai
 └──────────────┈❖`
                 let buttons = [{ buttonId: 'command', buttonText: { displayText: '⬅️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: '📖All Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: '🙏Donasi' }, type: 1 }]
             await akame.sendButtonText(m.chat, buttons, anu, ntiktok, fkontak)
@@ -7130,6 +7188,31 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 │⭔ ${prefix}calliope
 │⭔ ${prefix}kitagawa
 └┬─────────────┈❖
+┌┤「 NSFW 」
+│└─────────────┈❖
+│⭔ ${prefix}ass 
+│⭔ ${prefix}bdsm
+│⭔ ${prefix}blowjob
+│⭔ ${prefix}cuckold
+│⭔ ${prefix}cum
+│⭔ ${prefix}ero
+│⭔ ${prefix}femdom
+│⭔ ${prefix}foot
+│⭔ ${prefix}gangbang
+│⭔ ${prefix}glasses
+│⭔ ${prefix}hentai
+│⭔ ${prefix}gifs
+│⭔ ${prefix}jahy
+│⭔ ${prefix}manga
+│⭔ ${prefix}neko
+│⭔ ${prefix}orgy
+│⭔ ${prefix}panties
+│⭔ ${prefix}neko2
+│⭔ ${prefix}tentacles
+│⭔ ${prefix}thighs
+│⭔ ${prefix}yuri
+│⭔ ${prefix}zettai
+└──────────────┈❖
 ┌┤「 ASUPAN 」
 │└─────────────┈❖
 │⭔ ${prefix}cecan
