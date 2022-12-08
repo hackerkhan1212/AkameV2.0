@@ -5535,12 +5535,11 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) // respon ketika limit habis
                 db.data.users[m.sender].limit -= 1 // -1 limit
                 let anu = await fetchJson(`https://api.sekha.me/api/nsfw/${command}?apikey=apirey`)
-		buffer = await getBuffer(anu)
-                     let buttons = [                   
+		let buttons = [                   
                     {buttonId: `${command}`, buttonText: {displayText: '⌲ Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: buffer },
+                    image: { url: anu },
                     caption: `Nsfw ${command}`,
                     footer: 'Enjoy',
                     buttons: buttons,
