@@ -96,32 +96,32 @@ module.exports = akame = async (akame, m, chatUpdate, store) => {
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
 
         // Days
-        const hariini = moment.tz('Asia/Jakarta').format('dddd, DD MMMM YYYY')
-        const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
-        const wit = moment.tz('Asia/Jayapura').format('HH : mm : ss')
-        const wita = moment.tz('Asia/Makassar').format('HH : mm : ss')
+        const hariini = moment.tz('Asia/Karachi').format('dddd, DD MMMM YYYY')
+        const wib = moment.tz('Asia/Karachi').format('HH : mm : ss')
+        const wit = moment.tz('Asia/Karachi').format('HH : mm : ss')
+        const wita = moment.tz('Asia/Karachi').format('HH : mm : ss')
 
-        const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
+        const time2 = moment().tz('Asia/v').format('HH:mm:ss')
         if(time2 < "23:59:00"){
-        var ucapanWaktu = 'Selamat Malam 🏙️'
+        var ucapanWaktu = 'Good night 🏙️'
 }
         if(time2 < "19:00:00"){
-        var ucapanWaktu = 'Selamat Petang 🌆'
+        var ucapanWaktu = 'Good evening 🌆'
 }
         if(time2 < "18:00:00"){
-        var ucapanWaktu = 'Selamat Sore 🌇'
+        var ucapanWaktu = 'Good afternoon 🌇'
 }
         if(time2 < "15:00:00"){
-        var ucapanWaktu = 'Selamat Siang 🌤️'
+        var ucapanWaktu = 'Happy Cyang 🌤️'
 }
         if(time2 < "10:00:00"){
-        var ucapanWaktu = 'Selamat Pagi 🌄'
+        var ucapanWaktu = 'Good morning 🌄'
 }
         if(time2 < "05:00:00"){
-        var ucapanWaktu = 'Selamat Subuh 🌆'
+        var ucapanWaktu = 'Enjoy Dawn 🌆'
 }
         if(time2 < "03:00:00"){
-        var ucapanWaktu = 'Selamat Tengah Malam 🌃'
+        var ucapanWaktu = 'Good midnight 🌃'
 }
 
         //Time Menuju Ulang Tahun Untuk GuaAbuzz :)
@@ -135,7 +135,7 @@ module.exports = akame = async (akame, m, chatUpdate, store) => {
         const menuju = `${jhari}Hari ${jjam}Jam ${mmmenit}Menit ${ddetik}Detik`
         
         //buttons Tambahan
-        const ntiktok = ('© GuaAbuzz\nTikTok/Github :\nhttps://github.com/Abuzzpoet')  //ubah di config biar ngk emror
+        const ntiktok = ('© Ibrahim\nOwner/Github :\nhttps://github.com/Thewiskey')  //ubah di config biar ngk emror
         const ini_mark = `0@s.whatsapp.net`
         const ownernya = ownernomer + '@s.whatsapp.net'
         
@@ -228,7 +228,7 @@ const ftoko = {
                 },
                 "title": `${ttname}`,
                 "description": `${botname}`,
-                "currencyCode": "IDR",
+                "currencyCode": "PKR",
                 "priceAmount1000": "1000000000000000000",
                 "retailerId": `${ttname}`,
                 "productImageCount": 1
@@ -334,7 +334,7 @@ const fkontak = {
     message: {
         'contactMessage': {
             'displayName': `${ttname}`,
-            'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;ttname,;;;\nFN:ttname\nitem1.TEL;waid=6289636827082:6289636827082\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
+            'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;ttname,;;;\nFN:ttname\nitem1.TEL;waid=923229931076\:923229931076\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
             'jpegThumbnail': thumb,
             thumbnail: thumb,
             sendEphemeral: true
@@ -505,7 +505,7 @@ const fakestatus = {
 	    if (new Date() * 1 - setting.status > 1000) {
 		let _uptime = process.uptime() * 1000
 		let uptime = clockString(_uptime)
-		await akame.updateProfileStatus(`I am Akame-Bot | Aktif Selama ${uptime} ⏳ | Mode : ${akame.public ? 'Public-Mode 👥' : 'Self-Mode 👤'} | User : ${Object.keys(global.db.data.users).length} 👥| Jangan Telp Bot 📞 | © Created GuaAbuzz`).catch(_ => _)
+		await akame.updateProfileStatus(`I am Ibrahim-Bot | Active During ${uptime} ⏳ | Mode : ${akame.public ? 'Public-Mode 👥' : 'Self-Mode 👤'} | User : ${Object.keys(global.db.data.users).length} 👥| Don't call bot 📞 | © Created Ibrahim`).catch(_ => _)
 		setting.status = new Date() * 1
 	    }
 	}
@@ -562,18 +562,18 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakasahotak[m.sender.split('@')[0]]
             if (budy.toLowerCase() == "nyerah") {
-                await m.reply('*Anda Telah menyerah*')
+                await m.reply('*You have given up*')
                 delete tebakasahotak[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
                 await akame.sendButtonText(m.chat, [{
-                    buttonId: 'tebak asahotak',
+                    buttonId: 'guess ashotak',
                     buttonText: {
-                        displayText: '⌲ Tebak Asah Otak'
+                        displayText: '⌲ Guess the Brain Teaser'
                     },
                     type: 1
-                }], `🎮 Asah Otak 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ntiktok, fakestatus)
+                }], `🎮 Brain Teasers 🎮\n\nRight Answers 🎉\n\nWant to play again? press the button below`, ntiktok, fakestatus)
                 delete tebakasahotak[m.sender.split('@')[0]]
-            } else m.reply('*Jawaban Salah!*')
+            } else m.reply('*Wrong answer!*')
         }
 
         if (tebaksiapakahaku.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
@@ -586,10 +586,10 @@ ${Array.from(room.jawaban, (jawaban, index) => {
                 await akame.sendButtonText(m.chat, [{
                     buttonId: 'tebak siapakahaku',
                     buttonText: {
-                        displayText: '⌲ Tebak Siapkah Aku'
+                        displayText: '⌲ Guess Am I Ready'
                     },
-                    type: 1
-                }], `🎮 Siapakah Aku 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ntiktok, fakestatus)
+                    types: 1
+                }], `🎮 Who Am I 🎮\n\nCorrect Answer 🎉\n\nWanna play again? press the button below`, ntiktok, fakestatus)
                 delete tebaksiapakahaku[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -602,14 +602,14 @@ ${Array.from(room.jawaban, (jawaban, index) => {
                 delete tebaksusunkata[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
                 await akame.sendButtonText(m.chat, [{
-                    buttonId: 'tebak susunkata',
+                    buttonId: 'guess the word',
                     buttonText: {
-                        displayText: '⌲ Tebak Susun Kata'
+                        displayText: '⌲ Guess the Word'
                     },
-                    type: 1
-                }], `🎮 Susun Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ntiktok, fakestatus)
+                    types: 1
+                }], `🎮 Word Order 🎮\n\nCorrect Answer 🎉\n\nWant to play again? press the button below`, ntiktok, fakestatus)
                 delete tebaksusunkata[m.sender.split('@')[0]]
-            } else m.reply('*Jawaban Salah!*')
+            } else m.reply('*Wrong answer!*')
         }
 
         if (tebakbendera.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
@@ -622,12 +622,12 @@ ${Array.from(room.jawaban, (jawaban, index) => {
                 await akame.sendButtonText(m.chat, [{
                     buttonId: 'tebak bendera',
                     buttonText: {
-                        displayText: '⌲ Tebak Bendera'
+                        displayText: '⌲ Guess the Flag'
                     },
-                    type: 1
-                }], `🎮 Tebak Bendera 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, ntiktok, fakestatus)
+                    types: 1
+                }], `🎮 Guess the Flag 🎮\n\nCorrect Answer 🎉\n\nWant to play again? press the button below`, ntiktok, fakestatus)
                 delete tebakbendera[m.sender.split('@')[0]]
-            } else m.reply('*Jawaban Salah!*')
+            } else m.reply('*Wrong answer!*')
         }
 
         if (tebakbendera2.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
@@ -863,45 +863,45 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         //Anti Link
         if (db.data.chats[m.chat].antilink) {
             if (budy.match(`chat.whatsapp.com`)) {
-                m.reply(`「 ANTI LINK WHATSAPP 」\n\nKamu Terdeteksi Mengirim Link Group, Maaf Kamu Akan Di Kick !`)
-                if (!isBotAdmins) return m.reply(`Ehh Bot Gak Admin T_T`)
+                m.reply(`「 ANTI WHATSAPP LINK 」\n\nYou Are Detected Sending Group Link, Sorry You Will Be Kicked !`)
+                if (!isBotAdmins) return m.reply(`Ehh Bot Not Admin T_T`)
                 let gclink = (`https://chat.whatsapp.com/` + await akame.groupInviteCode(m.chat))
                 let isLinkThisGc = new RegExp(gclink, 'i')
                 let isgclink = isLinkThisGc.test(m.text)
-                if (isgclink) return m.reply(`Ehh Maaf Gak Jadi, Link Group Ini Ternyata 😆`)
-                if (isAdmins) return m.reply(`Ehh Maaf Ternyata Kamu Admin 😁`)
-                if (isCreator) return m.reply(`Ehh Maaf Kamu Ownerku Ternyata 😅`)
+                if (isgclink) return m.reply(`Ehh Sorry it didn't work, this group link turned out 😆`)
+                if (isAdmins) return m.reply(`Ehh Sorry You're Admin 😁`)
+                if (isCreator) return m.reply(`Ehh Sorry You're My Owner 😅`)
                 akame.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
         }
         //Anti Link YouTube
         if (db.data.chats[m.chat].antilinkyt) {
-            if (budy.match(`https://youtu.be`)) {
-                m.reply(`「 ANTI LINK YOUTUBE 」\n\nKamu Terdeteksi Mengirim Link Youtube, Maaf Kamu Akan Di Kick !`)
-                if (!isBotAdmins) return m.reply(`Ehh Bot Gak Admin T_T`)
-                if (isAdmins) return m.reply(`Ehh Maaf Ternyata Kamu Admin 😁`)
-                if (isCreator) return m.reply(`Ehh Maaf Kamu Ownerku Ternyata 😅`)
+            if (budy. match(`https://youtu.be`)) {
+                m.reply(`「 ANTI YOUTUBE LINK 」\n\nYou Are Detected Sending Youtube Link, Sorry You Will Be Kicked !`)
+                if (!isBotAdmins) return m.reply(`Ehh Bot Not Admin T_T`)
+                if (isAdmins) return m.reply(`Ehh Sorry You're Admin 😁`)
+                if (isCreator) return m.reply(`Ehh Sorry You're My Owner 😅`)
                 akame.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
         }
         //Anti Link Tiktok
         if (db.data.chats[m.chat].antilinktt) {
-            if (budy.match(`https://vt.tiktok.com`)) {
-                m.reply(`「 ANTI LINK TIKTOK 」\n\nKamu Terdeteksi Mengirim Link TikTok, Maaf Kamu Akan Di Kick !`)
-                if (!isBotAdmins) return m.reply(`Ehh Bot Gak Admin T_T`)
-                if (isAdmins) return m.reply(`Ehh Maaf Ternyata Kamu Admin 😁`)
-                if (isCreator) return m.reply(`Ehh Maaf Kamu Ownerku Ternyata 😅`)
+            if (budy. match(`https://vt.tiktok.com`)) {
+                m.reply(`「ANTI LINK TIKTOK 」\n\nYou Are Detected Sending TikTok Links, Sorry You Will Be Kicked !`)
+                if (!isBotAdmins) return m.reply(`Ehh Bot Not Admin T_T`)
+                if (isAdmins) return m.reply(`Ehh Sorry You're Admin 😁`)
+                if (isCreator) return m.reply(`Ehh Sorry You're My Owner 😅`)
                 akame.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
         }
         //AntiVirtex
         if (db.data.chats[m.chat].antivirtex) {
-            if (budy.length > 3500) {
-                m.reply(`Seseorang mengirim spam virus!! tandai sebagai membaca⚠️\n`.repeat(300))
-                m.reply(`「 ANTI VIRTEX 」\n\nKamu Terdeteksi Mengirim Virtex, Maaf Kamu Akan Di Kick !`)
-                if (!isBotAdmins) return m.reply(`Ehh Bot Gak Admin T_T`)
-                if (isAdmins) return m.reply(`Ehh Maaf Ternyata Kamu Admin 😁`)
-                if (isCreator) return m.reply(`Ehh Maaf Kamu Ownerku Ternyata 😅`)
+            if (budy. length > 3500) {
+                m.reply(`Someone sent spam virus!! mark as read⚠️\n`.repeat(300))
+                m.reply(`「ANTI VIRTEX 」\n\nYou Are Detected Sending Virtex, Sorry You Will Be Kicked !`)
+                if (!isBotAdmins) return m.reply(`Ehh Bot Not Admin T_T`)
+                if (isAdmins) return m.reply(`Ehh Sorry You're Admin 😁`)
+                if (isCreator) return m.reply(`Ehh Sorry You're My Owner 😅`)
                 akame.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
         }
