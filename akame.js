@@ -5506,6 +5506,48 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 akame.sendText(m.chat, teks, fgclink)
             }
             break
+			//nsfw
+			case 'ahegao':
+            case 'ass':
+            case 'bdsm':
+            case 'blowjob':
+            case 'cuckold':
+            case 'cum':
+            case 'ero':
+            case 'femdom':
+	    case 'foot':
+	    case 'gangbang':
+	    case 'glasses':
+	    case 'hentai':
+	    case 'gifs':
+	    case 'jahy':
+	    case 'manga':
+	    case 'masturbation':
+	    case 'neko':
+	    case 'orgy':
+	    case 'panties':
+	    case 'neko2':
+	    case 'tentacles':
+	    case 'thighs':
+	    case 'yuri':
+            case 'zettai': {
+                m.reply(mess.wait)
+                if (!isPremium && global.db.data.users[m.sender].limit < 1) return m.reply(mess.endLimit) // respon ketika limit habis
+                db.data.users[m.sender].limit -= 1 // -1 limit
+                let anu = await fetchJson(`https://api.sekha.me/api/nsfw/${command}?apikey=apirey`)
+                     let buttons = [                   
+                    {buttonId: `${command}`, buttonText: {displayText: '⌲ Next Image'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: anu },
+                    caption: `Nsfw ${command}`,
+                    footer: 'Enjoy',
+                    buttons: buttons,
+                    headerType: 4
+                }
+                akame.sendMessage(m.chat, buttonMessage, { quoted: fdoc })
+            }
+			  break
             case 'rules': {
                 goblok = fs.readFileSync('./media/sound/menu.mp3')
                 akame.sendMessage(m.chat, {audio: goblok, mimetype:'audio/mpeg', ptt:true }, {quoted:fvn})}
